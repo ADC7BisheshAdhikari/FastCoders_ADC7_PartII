@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load staticfiles %}  
+    
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/update/{{employee.id}}">  
+        {% csrf_token %}  
+    <h3>Update Details</h3>  
+    <label >Company Name:</label>  
+        <input type="text" name="cCompanyName" value="{{ employee.cCompanyName}}"/>  
+
+    <label>Vacant Post:</label>  
+        <input type="text" name="cVacantPost" value="{{ employee.cVacantPost }}" />  
+     
+    <label>Enter Number of Vacancy:</label>  
+        <input type="number" name="cVacancyNumber" value="{{ employee.cVacancyNumber }}" />  
+     
+    <label >Email:</label>  
+        <input type="email" name="cEmail" value="{{ employee.cEmail}}" />  
+  
+    <label >Mobile:</label>  
+        <input type="number" name="cMobile" value="{{ employee.cMobile }}" />  
+     
+    <label >Location:</label>   
+        <input type="text" name="cLocation" value="{{ employee.cLocation }}" />  
+     
+    <button type="submit">Update</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  
