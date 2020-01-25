@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Template,Context
 from django.core.files.storage import FileSystemStorage
+from django.db.models import Q
 # Create your views here.  
 def emp(request):  
     if request.method == "POST":  
@@ -41,7 +42,21 @@ def destroy(request, id):
 
 
 # Create your views here.
-def search(request):
+def search(request):#searching
+    if request.method == "GET": 
+        srch = request.GET['srh']
+
+        if srch:
+            match = Employee.objects.filter(Q(cCompanyName__icontains=srch) )
+
+
+            if match:
+                return render(request,'search.html',  {'object_list':match})
+            else:
+                messages.error(request,'no result found')
+        else:
+            return HttpResponseRedrect('/search/')
+
     return render(request,'search.html')
 
 def login(request):
