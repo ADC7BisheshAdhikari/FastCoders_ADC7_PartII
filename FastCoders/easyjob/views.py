@@ -43,8 +43,8 @@ def destroy(request, id):
 
 # Create your views here.
 def search(request):#searching
-    if request.method == "GET": 
-        srch = request.GET['srh']
+    if request.method == "POST": 
+        srch = request.POST['srh']
 
         if srch:
             match = Employee.objects.filter(Q(cCompanyName__icontains=srch) )
@@ -54,6 +54,7 @@ def search(request):#searching
                 return render(request,'search.html',  {'object_list':match})
             else:
                 messages.error(request,'no result found')
+               
         else:
             return HttpResponseRedrect('/search/')
 
