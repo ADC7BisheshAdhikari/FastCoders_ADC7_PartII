@@ -8,13 +8,14 @@
     <!--bootstrap-css-->
     <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
     <title>Company</title>
+    {% load static %}
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="well well-sm">
-                    <form class="form-horizontal" method="POST" action="/show">
+                    <form class="form-horizontal" method="POST" action="/company/">
                         {% csrf_token %}
                     <form class="form-horizontal" method="post">
                         <fieldset>

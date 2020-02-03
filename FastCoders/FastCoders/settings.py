@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'easyjob',
     'login',
+    'Model_Relationship'
 ]
 
 MIDDLEWARE = [
