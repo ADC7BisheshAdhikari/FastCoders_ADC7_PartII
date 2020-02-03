@@ -20,6 +20,9 @@
       {{Employee.cMobile}},{{Employee.cLocation}}
       </li>
   {% endfor %}
+  {% for message in messages %}
+  <h6> {{message}} </h6>
+  {% endfor %}
 </ul>
 </body>
 <script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>

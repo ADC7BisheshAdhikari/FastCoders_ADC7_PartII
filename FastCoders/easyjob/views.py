@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.template import Template,Context
 from django.core.files.storage import FileSystemStorage
 from django.db.models import Q
+from django.contrib import messages
 # Create your views here.  
 def emp(request):  
     if request.method == "POST":  
@@ -47,13 +48,13 @@ def search(request):#searching
         srch = request.POST['srh']
 
         if srch:
-            match = Employee.objects.filter(Q(cCompanyName__icontains=srch) )
+            match = Employee.objects.filter(Q(cCompanyName__icontains=srch)|Q(cEmail__icontains=srch)|Q(cVacantPost__icontains=srch)|Q(cMobile__icontains=srch))
 
 
             if match:
                 return render(request,'search.html',  {'object_list':match})
             else:
-                messages.error(request,'no result found')
+                 messages.error(request,'no result found')
                
         else:
             return HttpResponseRedrect('/search/')
