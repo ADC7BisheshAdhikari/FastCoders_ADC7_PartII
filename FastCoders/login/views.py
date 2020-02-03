@@ -13,6 +13,7 @@ def login(request):
         password = request.POST['password']
 
         user= auth.authenticate(username=username,password=password)
+        print("User object => ",user)
         if user is not None:
             auth.login(request,user)
             return render(request,'index.html')
@@ -49,7 +50,7 @@ def register(request):
                 return render(request,'registerform.html')
             else:
              user =User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
-             user.save();
+             user.save()
              print('user created')
              return redirect('login')
              
