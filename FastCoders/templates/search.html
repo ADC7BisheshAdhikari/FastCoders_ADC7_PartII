@@ -14,10 +14,10 @@
     <h1>Search Results</h1>
 
 <ul>
-  {% for Employee in object_list %}
+  {% for CompanyDetails in object_list %}
     <li>
-      {{ Employee.cCompanyName }}, {{ Employee.cVacantPost }},{{Employee.cVacancyNumber}},{{Employee.cEmail}},
-      {{Employee.cMobile}},{{Employee.cLocation}}
+      {{ CompanyDetails.cCompanyName }}, {{ CompanyDetails.cVacantPost }},{{CompanyDetails.cVacancyNumber}},{{CompanyDetails.cEmail}},
+      {{CompanyDetails.cMobile}},{{CompanyDetails.cLocation}}
       </li>
   {% endfor %}
   {% for message in messages %}

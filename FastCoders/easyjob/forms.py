@@ -1,6 +1,6 @@
 from django import forms  
-from easyjob.models import Employee  
-class EmployeeForm(forms.ModelForm):  
+from easyjob.models import Company  
+class CompanyForm(forms.ModelForm):  
     class Meta:  
-        model = Employee  
+        model = Company  
         fields = "__all__"  
