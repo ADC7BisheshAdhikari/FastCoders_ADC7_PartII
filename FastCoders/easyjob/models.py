@@ -3,7 +3,8 @@ from django.db import models
 class EmpManager(models.Manager):
     pass
 
-class Employee(models.Model):
+
+class Company(models.Model):
     cCompanyName=models.CharField(max_length=100)
     cVacantPost=models.CharField(max_length=100)
     cVacancyNumber=models.IntegerField()

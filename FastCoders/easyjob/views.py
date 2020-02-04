@@ -1,16 +1,17 @@
 from django.shortcuts import render, redirect  
-from easyjob.forms import EmployeeForm  
-from easyjob.models import Employee  
+from easyjob.forms import CompanyForm  
+from easyjob.models import Company  
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.template import Template,Context
 from django.core.files.storage import FileSystemStorage
 from django.db.models import Q
 from django.contrib import messages
+
 # Create your views here.  
 def emp(request):  
     if request.method == "POST":  
-        form = EmployeeForm(request.POST)  
+        form = CompanyForm(request.POST)  
         if form.is_valid():  
             try:  
                 form.save()  
@@ -18,23 +19,23 @@ def emp(request):
             except:  
                 pass  
     else:  
-        form = EmployeeForm()  
+        form = CompanyForm()  
     return render(request,'company.html',{'form':form})  
 def show(request):  
-    employees = Employee.objects.all()  
+    employees = Company.objects.all()  
     return render(request,"show.html",{'employees':employees})  
 def edit(request, id):  
-    employee = Employee.objects.get(id=id)  
+    employee = Company.objects.get(id=id)  
     return render(request,'edit.html', {'employee':employee})  
 def update(request, id):  
-    employee = Employee.objects.get(id=id)  
-    form = EmployeeForm(request.POST, instance = employee)  
+    employee = Company.objects.get(id=id)  
+    form = CompanyForm(request.POST, instance = employee)  
     if form.is_valid():  
         form.save()  
         return redirect("/show")  
     return render(request, 'edit.html', {'employee': employee})  
 def destroy(request, id):  
-    employee = Employee.objects.get(id=id)  
+    employee = Company.objects.get(id=id)  
     employee.delete()  
     return redirect("/show")  
 
@@ -48,7 +49,7 @@ def search(request):#searching
         srch = request.POST['srh']
 
         if srch:
-            match = Employee.objects.filter(Q(cCompanyName__icontains=srch)|Q(cEmail__icontains=srch)|Q(cVacantPost__icontains=srch)|Q(cMobile__icontains=srch))
+            match = Company.objects.filter(Q(cCompanyName__icontains=srch)|Q(cEmail__icontains=srch)|Q(cVacantPost__icontains=srch)|Q(cMobile__icontains=srch))
 
 
             if match:
@@ -57,7 +58,7 @@ def search(request):#searching
                  messages.error(request,'no result found')
                
         else:
-            return HttpResponseRedrect('/search/')
+            return HttpResponseRedirect('/search/')
 
     return render(request,'search.html')
 

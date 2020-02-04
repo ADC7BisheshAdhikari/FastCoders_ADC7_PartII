@@ -1,3 +1,4 @@
 from django.test import TestCase
+from easyjob  import models
 
-# Create your tests here.
+class Company_Model_Test_Case(TestCase):

@@ -38,3 +38,5 @@ class Resume(models.Model):
 
     def __str__(self):
         return f"{self.Employee,self.Education,self.Experience}"
+class Profile(models.Model):
+    Applicant_Profile=models.OneToOneField(Applicant,  on_delete = models.CASCADE, primary_key = True) 
