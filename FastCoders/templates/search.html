@@ -8,7 +8,15 @@
 
     <!--bootstrap-css-->
     <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
-    <title>Document</title>
+    <title>search</title>
+    <style>
+      body{
+        background-color: lightgray;
+      }
+      li{
+        padding: 10px;
+      }
+    </style>
 </head>
 <body>
     <h1>Search Results</h1>
@@ -16,8 +24,12 @@
 <ul>
   {% for CompanyDetails in object_list %}
     <li>
-      {{ CompanyDetails.cCompanyName }}, {{ CompanyDetails.cVacantPost }},{{CompanyDetails.cVacancyNumber}},{{CompanyDetails.cEmail}},
-      {{CompanyDetails.cMobile}},{{CompanyDetails.cLocation}}
+      CompanyName:{{ CompanyDetails.cCompanyName }}<br>
+      VacantPost:{{ CompanyDetails.cVacantPost }}<br>
+      VacancyNumber:{{CompanyDetails.cVacancyNumber}}<br>
+      Email:{{CompanyDetails.cEmail}}<br>
+      Mobile:{{CompanyDetails.cMobile}}<br>
+      Location:{{CompanyDetails.cLocation}}
       </li>
   {% endfor %}
   {% for message in messages %}
