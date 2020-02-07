@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Company(models.Model):
-    CompanyName=models.CharField(max_length=20,blank=True, default='')
+    CompanyName=models.CharField(max_length=20)
     Company_Email=models.EmailField(max_length=30)
     Mobile_No=models.IntegerField()
     Company_Location=models.CharField(max_length=20)
@@ -12,7 +12,7 @@ class Company(models.Model):
 
 
 class Applicant(models.Model):
-    Applicant_Name=models.CharField(max_length=20, blank=True, default='')
+    Applicant_Name=models.CharField(max_length=20)
     Applicant_Email=models.EmailField(max_length=30)
     Applicant_Mobile_No=models.IntegerField()
     Applicant_address=models.CharField(max_length=30)
@@ -38,5 +38,6 @@ class Resume(models.Model):
 
     def __str__(self):
         return f"{self.Employee,self.Education,self.Experience}"
+
 class Profile(models.Model):
     Applicant_Profile=models.OneToOneField(Applicant,  on_delete = models.CASCADE, primary_key = True) 

@@ -21,5 +21,7 @@ urlpatterns = [
     path('',include('easyjob.urls')),
     path('',include('login.urls')),
     path('',include('Model_Relationship.urls')),
+    path('',include('REST_API.urls')),
+
 ]
 
