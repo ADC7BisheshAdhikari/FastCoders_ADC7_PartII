@@ -4,11 +4,45 @@
 <head>  
     <meta charset="UTF-8">  
     <title>Employee Records</title> 
+    <style>
+        body{
+      background-color:lightgray;
+    }
+    button{
+        background-color:lightgreen;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+#show {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#show td, #show th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#show tr:nth-child(even){background-color: #f2f2f2;}
+
+#show tr:hover {background-color: #ddd;}
+
+#show th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+    </style>
      
-     {% load static %}  
+    
 </head>  
-<body>  
-<table >  
+  
+<table id="show">  
     <thead>  
     <tr>  
         <th>Company Name</th>  
@@ -30,8 +64,8 @@
         <td>{{ employee.cMobile }}</td>
         <td>{{ employee.cLocation}}</td>  
         <td>  
-            <a href="/edit/{{ employee.id }}"><span >Edit</span></a>  
-            <a href="/delete/{{ employee.id }}">Delete</a>  
+            <button><a href="/edit/{{ employee.id }}"><span >Edit</span></a> </button>
+            <button> <a href="/delete/{{ employee.id }}">Delete</a>  </button>
         </td>  
     </tr>  
 {% endfor %}  
@@ -39,6 +73,7 @@
 </table >  
 <br>  
 <br>  
-<center><a href="/company/" class="btn btn-primary">Add New Record</a></center>  
+<button><a href="/company/" class="btn btn-primary">Add New Record</a>  </button>
+
 </body>  
 </html>  

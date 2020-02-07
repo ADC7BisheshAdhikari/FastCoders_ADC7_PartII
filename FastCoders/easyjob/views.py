@@ -80,3 +80,5 @@ def firstPage(request):
         pass
     return render(request,'index.html')
 
+def base(request):
+    return render(request,'base.html')

@@ -1,32 +1,47 @@
+{% load static %}
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
     <meta charset="UTF-8">  
-    <title>Index</title>  
-    {% load static %}  
+    <title>Index</title>
+    <style> 
+    input{
+        width: 50%;
+        padding: 8px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+        
+      }
+      button{
+          padding: 10px;
+          border-radius: 5px;
+          background-color: lightgreen;
+      }
+          </style>
     
 </head>  
 <body>  
 <form method="POST" class="post-form" action="/update/{{employee.id}}">  
         {% csrf_token %}  
     <h3>Update Details</h3>  
-    <label >Company Name:</label>  
-        <input type="text" name="cCompanyName" value="{{ employee.cCompanyName}}"/>  
+    <label >Company Name:</label>  <br>
+        <input type="text" name="cCompanyName" value="{{ employee.cCompanyName}}"/> <br> 
 
-    <label>Vacant Post:</label>  
-        <input type="text" name="cVacantPost" value="{{ employee.cVacantPost }}" />  
+    <label>Vacant Post:</label> <br>
+        <input type="text" name="cVacantPost" value="{{ employee.cVacantPost }}" />  <br>
      
-    <label>Enter Number of Vacancy:</label>  
-        <input type="number" name="cVacancyNumber" value="{{ employee.cVacancyNumber }}" />  
+    <label>Enter Number of Vacancy:</label><br>  
+        <input type="number" name="cVacancyNumber" value="{{ employee.cVacancyNumber }}" /> <br> 
      
-    <label >Email:</label>  
-        <input type="email" name="cEmail" value="{{ employee.cEmail}}" />  
+    <label >Email:</label><br>  
+        <input type="email" name="cEmail" value="{{ employee.cEmail}}" /> <br> 
   
-    <label >Mobile:</label>  
-        <input type="number" name="cMobile" value="{{ employee.cMobile }}" />  
+    <label >Mobile:</label>  <br>
+        <input type="number" name="cMobile" value="{{ employee.cMobile }}" />  <br>
      
-    <label >Location:</label>   
-        <input type="text" name="cLocation" value="{{ employee.cLocation }}" />  
+    <label >Location:</label> <br>  
+        <input type="text" name="cLocation" value="{{ employee.cLocation }}" />  <br>
      
     <button type="submit">Update</button>  
     </div>  
