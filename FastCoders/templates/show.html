@@ -1,17 +1,18 @@
+{% extends 'base.html' %}
 {% load static %}
 <!DOCTYPE html>  
 <html lang="en">  
+    
+{% block content %}
 <head>  
     <meta charset="UTF-8">  
     <title>Employee Records</title> 
     <style>
-        body{
-      background-color:lightgray;
-    }
-    button{
+button{
         background-color:lightgreen;
-        padding: 10px;
-        border-radius: 5px;
+        padding: 8px;
+        border-radius: 7px;
+        margin-top: -9px;
     }
     
 #show {
@@ -41,8 +42,10 @@
      
     
 </head>  
-  
-<table id="show">  
+<body>   
+<h3 style="margin-left:500px;margin-top:65px;  font-style: oblique; color: orange;">Companies</h3> 
+<button><a href="/" class="btn btn-primary">Back</a>  </button>
+<table style="margin-top: 25px;" id="show">  
     <thead>  
     <tr>  
         <th>Company Name</th>  
@@ -51,7 +54,12 @@
         <th>Email Address</th>  
         <th>Phone</th> 
         <th>Location</th>
-        <th>Actions</th>  
+        {% if user.is_authenticated %}
+
+          
+        {% else %}
+        <th>Actions</th>
+        {% endif %}  
     </tr>  
     </thead>  
     <tbody>  
@@ -63,17 +71,27 @@
         <td>{{ employee.cEmail }}</td>
         <td>{{ employee.cMobile }}</td>
         <td>{{ employee.cLocation}}</td>  
+        {% if user.is_authenticated %}
+
+        {% else %}
         <td>  
             <button><a href="/edit/{{ employee.id }}"><span >Edit</span></a> </button>
             <button> <a href="/delete/{{ employee.id }}">Delete</a>  </button>
-        </td>  
+        </td>
+        {% endif %}   
     </tr>  
 {% endfor %}  
     </tbody>  
 </table >  
 <br>  
 <br>  
+{% if user.is_authenticated %}          
+{% else %}
 <button><a href="/company/" class="btn btn-primary">Add New Record</a>  </button>
+{% endif %}  
 
+
+ 
 </body>  
+{% endblock %} 
 </html>  

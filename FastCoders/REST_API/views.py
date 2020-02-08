@@ -4,7 +4,7 @@ from easyjob.models import Company
 import json
 
 @csrf_exempt
-def view_get_post_airport(request):
+def view_get_post_company(request):
     if request.method == "GET":
         company = Company.objects.all()
         list_of_company = list(company.values("id","cCompanyName","cVacantPost","cVacancyNumber","cEmail","cMobile","cLocation"))

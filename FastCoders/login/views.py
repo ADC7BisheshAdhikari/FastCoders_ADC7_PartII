@@ -18,7 +18,7 @@ def login(request):
             auth.login(request,user)
             return render(request,'index.html')
         else:
-            messages.info(request,"invalid username")
+            messages.info(request,"\"Username and password didn't match\"")
             return redirect('login')
     else:
         return render(request,'login.html')
@@ -28,7 +28,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect('/index')
+    return redirect('/')
 
 # Signup
 def register(request):
@@ -42,11 +42,12 @@ def register(request):
         password2 = request.POST['password2']
         
         if password1==password2:
+            
             if User.objects.filter(username=username).exists():
-                messages.info(request,'username Taken')
+                messages.info(request,"\"Username already registered\"")
                 return render(request,'registerform.html')
             elif User.objects.filter(email=email).exists():
-                messages.info(request,'email taken')
+                messages.info(request,"\"Email already registered\'")
                 return render(request,'registerform.html')
             else:
              user =User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
@@ -55,7 +56,7 @@ def register(request):
              return redirect('login')
              
         else:
-            messages.info(request,'password not matching')
+            messages.info(request,'\"Password not matching\"')
             return render(request,'registerform.html')
         return render(request,'index.html')
     else:
