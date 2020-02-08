@@ -16,13 +16,13 @@
     <title>Home</title>
     <style>
  .footer{
-     background-color: black;
+  background-color: rgb(123, 135, 238);
  }
    
     </style>
     
 </head>
-<body>
+<body style="background-color: rgb(201, 229, 238)">
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">EasyJobs</a>
@@ -30,52 +30,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
+{% block content %}
 
-<p>dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-
-    dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-    dfknskmfklsdmfdddddddddddddddddddddddddddddddddddddddddddddddd
-    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-</p>
+{% endblock %}
   </div><!--container-->
-<div class="footer">
-<p>EasyJobs@2020</p>
-</div>
+  <div class="footer">
+      <p>EasyJobs@2020</p>
+      </div>
+
 </body>
 <script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>

@@ -19,10 +19,7 @@ urlpatterns = [
 
 urlpatterns += [
     path('profile/',applicant, name="profile"),
-    path('index/',firstPage, name="index"),
-    
-  
-    
+    path('',firstPage, name="index"),    
 ]
 
 
