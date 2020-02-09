@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -22,15 +23,17 @@
     {% load static %}
 </head>
 <body>
+        {% block content %}
+        <div style="margin-top: 5%;"> <button class="btn btn-primary"><a style="color: white" href="/">Back</a></button></div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div style="margin-top: -25px;" class="row">
+            <div  class="col-md-12">
                 <div class="well well-sm">
                     <form class="form-horizontal" method="POST" action="/company/">
                         {% csrf_token %}
-                    <form class="form-horizontal" method="post">
+                    <form  class="form-horizontal" method="post">
                         <fieldset>
-                            <legend class="text-center header">Company</legend>
+                            <legend style="margin-left:350px;margin-top:65px;  font-style: oblique; color: orange;" class="text-center header">Company</legend>
     
                             <div class="form-group">
                                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
@@ -102,7 +105,7 @@
     </div>
           
           
-     
+    {% endblock %}
 </body>
 <script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
