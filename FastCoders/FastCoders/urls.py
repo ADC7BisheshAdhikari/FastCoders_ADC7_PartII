@@ -20,8 +20,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('easyjob.urls')),
     path('',include('login.urls')),
+    path('',include('UploadAndDownload.urls')),
     path('',include('Model_Relationship.urls')),
     path('',include('REST_API.urls')),
-
+   
+    
 ]
 

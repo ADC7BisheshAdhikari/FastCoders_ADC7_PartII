@@ -7,11 +7,12 @@ import json
 def view_get_post_company(request):
     if request.method == "GET":
         company = Company.objects.all()
-        list_of_company = list(company.values("id","cCompanyName","cVacantPost","cVacancyNumber","cEmail","cMobile","cLocation"))
+        list_of_company = list(company.values("cCompanyName","cVacantPost","cVacancyNumber","cEmail","cMobile","cLocation"))
         dictionary_name = {
         "company":list_of_company
     }
         return JsonResponse(dictionary_name)
+        #Create
     elif request.method == "POST":
         python_dictionary_object = json.loads(request.body)
         get_cCompanyName=python_dictionary_object['cCompanyName']
@@ -65,5 +66,12 @@ def view_getByID_updateByID_deleteByID(request,ID):
         return JsonResponse({
         "message":" Deleted successfully"
         })
+    
+@csrf_exempt
+def list_company_pagination(request,pagenumber,size):
+    skip = size * (pagenumber - 1)
+    company = Company.objects.all()[skip: (pagenumber * size)]
+    data={"CompanyDetails": list(company.values("id","cCompanyName","cVacantPost","cVacancyNumber","cEmail","cMobile","cLocation")),}
+    return JsonResponse({'company': data})
 
-   
+

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'easyjob',
     'login',
     'Model_Relationship',
-    'REST_API'
+    'REST_API',
+    'UploadAndDownload'
+    
 ]
 
 MIDDLEWARE = [
@@ -130,6 +132,5 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'CV')
-
-MEDIA_URL='/CV/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'cv')
+MEDIA_URL='/cv/'

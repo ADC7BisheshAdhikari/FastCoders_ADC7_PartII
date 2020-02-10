@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.contrib import messages
 
 # Create your views here.  
+#Create
 def emp(request):  
     if request.method == "POST":  
         form = CompanyForm(request.POST)  
@@ -21,12 +22,14 @@ def emp(request):
     else:  
         form = CompanyForm()  
     return render(request,'company.html',{'form':form})  
+#Read
 def show(request):  
     employees = Company.objects.all()  
     return render(request,"show.html",{'employees':employees})  
 def edit(request, id):  
     employee = Company.objects.get(id=id)  
     return render(request,'edit.html', {'employee':employee})  
+    #Update
 def update(request, id):  
     employee = Company.objects.get(id=id)  
     form = CompanyForm(request.POST, instance = employee)  
@@ -34,6 +37,7 @@ def update(request, id):
         form.save()  
         return redirect("/show")  
     return render(request, 'edit.html', {'employee': employee})  
+#Delete
 def destroy(request, id):  
     employee = Company.objects.get(id=id)  
     employee.delete()  
@@ -67,6 +71,14 @@ def login(request):
 def company(request):
     return render(request,'company.html')
 
+#pagination
+def list_company_pagination(request, SIZE, PAGENO):
+    skip = SIZE * (PAGENO - 1)
+    company = Company.objects.all()[skip: (PAGENO * SIZE)]
+    return render(request, 'show.html', {'employees': company })
+
+
+
 def applicant(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
@@ -82,3 +94,6 @@ def firstPage(request):
 
 def base(request):
     return render(request,'base.html')
+
+def profileTwo(request):
+     return render(request,'profileTwo.html')

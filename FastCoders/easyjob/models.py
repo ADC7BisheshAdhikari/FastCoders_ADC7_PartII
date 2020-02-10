@@ -1,6 +1,6 @@
 from django.db import models
 
-class EmpManager(models.Manager):
+class CompanyManager(models.Manager):
     pass
 
 
@@ -11,8 +11,10 @@ class Company(models.Model):
     cEmail=models.EmailField(max_length=100)
     cMobile=models.IntegerField()
     cLocation=models.CharField(max_length=50)
+    objects= CompanyManager()
 
-    objects= EmpManager()
+    def company_name_blank_check(self):
+        return bool(self.cCompanyName)
 
     class Meta:
         db_table="Company"  

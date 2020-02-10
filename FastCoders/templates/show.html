@@ -50,7 +50,7 @@ button{
     <tr>  
         <th>Company Name</th>  
         <th>Vacant Post</th>  
-        <th>Enter no of Vacany</th>  
+        <th>Total no. of Vacany</th>  
         <th>Email Address</th>  
         <th>Phone</th> 
         <th>Location</th>
@@ -88,10 +88,14 @@ button{
 {% if user.is_authenticated %}          
 {% else %}
 <button><a href="/company/" class="btn btn-primary">Add New Record</a>  </button>
-{% endif %}  
+{% endif %} 
 
+
+<a href="/show/pagination/5/1">1</a>
+<a href="/show/pagination/5/2">2</a>
+<a href="/show/pagination/5/3">3</a>
 
  
 </body>  
 {% endblock %} 
-</html>  
+</html>     

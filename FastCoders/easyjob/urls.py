@@ -11,7 +11,8 @@ urlpatterns = [
     path('update/<int:id>', views.update),  
     path('delete/<int:id>', views.destroy),
     path('search/',views.search, name="search"),
-    path('base/',base,name="base"),  
+    path('base/',base,name="base"), 
+    path('show/pagination/<int:SIZE>/<int:PAGENO>', views.list_company_pagination, name='list_company_pagination'), 
 
   
 ] 
@@ -19,6 +20,7 @@ urlpatterns = [
 
 urlpatterns += [
     path('profile/',applicant, name="profile"),
+    path('profileTwo/',profileTwo, name="profileTwo"),
     path('',firstPage, name="index"),    
 ]
 
