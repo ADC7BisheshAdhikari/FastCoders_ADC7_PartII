@@ -19,7 +19,14 @@ urlpatterns = [
 
 urlpatterns += [
     path('profile/',applicant, name="profile"),
+<<<<<<< Updated upstream
     path('',firstPage, name="index"),    
+=======
+    path('',firstPage, name="index"),
+    
+  
+    
+>>>>>>> Stashed changes
 ]
 
 

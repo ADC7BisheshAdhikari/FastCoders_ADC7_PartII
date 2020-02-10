@@ -55,11 +55,19 @@ button{
         <th>Phone</th> 
         <th>Location</th>
         {% if user.is_authenticated %}
+<<<<<<< Updated upstream
 
           
         {% else %}
         <th>Actions</th>
         {% endif %}  
+=======
+            
+        {% else %}
+        <th>Actions</th>
+        {% endif %}  
+
+>>>>>>> Stashed changes
     </tr>  
     </thead>  
     <tbody>  
@@ -75,15 +83,26 @@ button{
 
         {% else %}
         <td>  
+<<<<<<< Updated upstream
             <button><a href="/edit/{{ employee.id }}"><span >Edit</span></a> </button>
             <button> <a href="/delete/{{ employee.id }}">Delete</a>  </button>
         </td>
         {% endif %}   
+=======
+            {% if user.is_authenticated %}
+
+            {% else %}
+            <a href="/edit/{{ employee.id }}"><span >Edit</span></a>  
+            <a href="/delete/{{ employee.id }}">Delete</a>  
+            {% endif %}
+        </td>  
+>>>>>>> Stashed changes
     </tr>  
 {% endfor %}  
     </tbody>  
 </table >  
 <br>  
+<<<<<<< Updated upstream
 <br>  
 {% if user.is_authenticated %}          
 {% else %}
@@ -92,6 +111,15 @@ button{
 
 
  
+=======
+<br> 
+{% if user.is_authenticated %}
+<p></p> 
+{% else %}
+
+<center><a href="/company/" class="btn btn-primary">Add New Record</a></center>  
+{% endif %}
+>>>>>>> Stashed changes
 </body>  
 {% endblock %} 
 </html>  
