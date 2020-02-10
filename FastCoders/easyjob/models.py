@@ -14,6 +14,9 @@ class Company(models.Model):
 
     objects= EmpManager()
 
+    class Meta:
+        db_table="Company" 
+
     def __str__(self):
         return  " Company Name->>" +self.cCompanyName + "| vacant Post->>" + self.cVacantPost + " | Email->> "+self.cEmail + " | Location->> "+ self.cLocation
 
