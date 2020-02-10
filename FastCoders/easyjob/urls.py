@@ -5,11 +5,11 @@ from .views import applicant, firstPage
 from .views import *
 
 urlpatterns = [   
-    path('company/', views.emp, name="company"),  
-    path('show',views.show, name="show"),  
-    path('edit/<int:id>', views.edit),  
-    path('update/<int:id>', views.update),  
-    path('delete/<int:id>', views.destroy),
+    path('company/', views.create_Records, name="company"),  
+    path('show',views.show_Records, name="show"),  
+    path('edit/<int:id>', views.edit_Records),  
+    path('update/<int:id>', views.update_Records),  
+    path('delete/<int:id>', views.destroy_Records),
     path('search/',views.search, name="search"),
     path('base/',base,name="base"),  
 

@@ -35,26 +35,26 @@
     
 </head>  
 <body>  
-<form style="margin-top:60px;margin-left: 250px;" method="POST" class="post-form" action="/update/{{employee.id}}">  
+<form style="margin-top:60px;margin-left: 250px;" method="POST" class="post-form" action="/update/{{employer.id}}">  
         {% csrf_token %}  
     <h3 style="margin-left:220px;  font-style: oblique; color: orange;">Update Details</h3>  
     <label >Company Name:</label>  <br>
-        <input type="text" name="cCompanyName" value="{{ employee.cCompanyName}}"/> <br> 
+        <input type="text" name="cCompanyName" value="{{ employer.cCompanyName}}"/> <br> 
 
     <label>Vacant Post:</label> <br>
-        <input type="text" name="cVacantPost" value="{{ employee.cVacantPost }}" />  <br>
+        <input type="text" name="cVacantPost" value="{{ employer.cVacantPost }}" />  <br>
      
     <label>Enter Number of Vacancy:</label><br>  
-        <input type="number" name="cVacancyNumber" value="{{ employee.cVacancyNumber }}" /> <br> 
+        <input type="number" name="cVacancyNumber" value="{{ employer.cVacancyNumber }}" /> <br> 
      
     <label >Email:</label><br>  
-        <input type="email" name="cEmail" value="{{ employee.cEmail}}" /> <br> 
+        <input type="email" name="cEmail" value="{{ employer.cEmail}}" /> <br> 
   
     <label >Mobile:</label>  <br>
-        <input type="number" name="cMobile" value="{{ employee.cMobile }}" />  <br>
+        <input type="number" name="cMobile" value="{{ employer.cMobile }}" />  <br>
      
     <label >Location:</label> <br>  
-        <input type="text" name="cLocation" value="{{ employee.cLocation }}" />  <br>
+        <input type="text" name="cLocation" value="{{ employer.cLocation }}" />  <br>
      
     <button type="submit">Update</button>  
     </div>  

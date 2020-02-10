@@ -8,8 +8,8 @@ from django.core.files.storage import FileSystemStorage
 from django.db.models import Q
 from django.contrib import messages
 
-# Create your views here.  
-def emp(request):  
+# create Records   
+def create_Records(request):  
     if request.method == "POST":  
         form = CompanyForm(request.POST)  
         if form.is_valid():  
@@ -20,31 +20,43 @@ def emp(request):
                 pass  
     else:  
         form = CompanyForm()  
-    return render(request,'company.html',{'form':form})  
-def show(request):  
-    employees = Company.objects.all()  
-    return render(request,"show.html",{'employees':employees})  
-def edit(request, id):  
-    employee = Company.objects.get(id=id)  
-    return render(request,'edit.html', {'employee':employee})  
-def update(request, id):  
-    employee = Company.objects.get(id=id)  
-    form = CompanyForm(request.POST, instance = employee)  
+    return render(request,'company.html',{'form':form})
+
+
+# Read Records  
+def show_Records(request):  
+    employer = Company.objects.all()  
+    return render(request,"show.html",{'employer':employer})
+
+
+# Edit Records  
+def edit_Records(request, id):  
+    employer = Company.objects.get(id=id)  
+    return render(request,'edit.html', {'employer':employer})
+
+
+# update Records  
+def update_Records(request, id):  
+    employer = Company.objects.get(id=id)  
+    form = CompanyForm(request.POST, instance = employer)  
     if form.is_valid():  
         form.save()  
         return redirect("/show")  
-    return render(request, 'edit.html', {'employee': employee})  
-def destroy(request, id):  
-    employee = Company.objects.get(id=id)  
-    employee.delete()  
+    return render(request, 'edit.html', {'employer': employer})
+
+
+# Delete Records  
+def destroy_Records(request, id):  
+    employer = Company.objects.get(id=id)  
+    employer.delete()  
     return redirect("/show")  
 
 
 
 
 
-# Create your views here.
-def search(request):#searching
+# Search Records
+def search(request):
     if request.method == "POST": 
         srch = request.POST['srh']
 
@@ -62,11 +74,15 @@ def search(request):#searching
 
     return render(request,'search.html')
 
+# for Login
 def login(request):
     return render(request,'login.html')
+
+# Show company.html page
 def company(request):
     return render(request,'company.html')
 
+# upload files
 def applicant(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
@@ -74,6 +90,7 @@ def applicant(request):
         fs.save(uploaded_file.name,uploaded_file)
     return render(request,'profile.html')
 
+# Search Records
 def firstPage(request):
     search = request.GET.get('search', False)
     if search:

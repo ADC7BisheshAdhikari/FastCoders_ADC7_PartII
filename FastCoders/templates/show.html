@@ -63,20 +63,20 @@ button{
     </tr>  
     </thead>  
     <tbody>  
-{% for employee in employees %}  
+{% for value in employer %}  
     <tr>  
-        <td>{{ employee.cCompanyName }}</td>  
-        <td>{{ employee.cVacantPost }}</td>  
-        <td>{{ employee.cVacancyNumber }}</td>  
-        <td>{{ employee.cEmail }}</td>
-        <td>{{ employee.cMobile }}</td>
-        <td>{{ employee.cLocation}}</td>  
+        <td>{{ value.cCompanyName }}</td>  
+        <td>{{ value.cVacantPost }}</td>  
+        <td>{{ value.cVacancyNumber }}</td>  
+        <td>{{ value.cEmail }}</td>
+        <td>{{ value.cMobile }}</td>
+        <td>{{ value.cLocation}}</td>  
         {% if user.is_authenticated %}
 
         {% else %}
         <td>  
-            <button><a href="/edit/{{ employee.id }}"><span >Edit</span></a> </button>
-            <button> <a href="/delete/{{ employee.id }}">Delete</a>  </button>
+            <button><a href="/edit/{{ value.id }}"><span >Edit</span></a> </button>
+            <button> <a href="/delete/{{ value.id }}">Delete</a>  </button>
         </td>
         {% endif %}   
     </tr>  
